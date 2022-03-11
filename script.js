@@ -11,12 +11,13 @@ function $(id) {
   return document.getElementById(id);
 }
 
+// Count selected Seats
 function selectedCount() {
   const selectedSeats = document.querySelectorAll('.row .seat.selected');
   const selectedCount = selectedSeats.length
   count.innerText = selectedCount;
 }
-
+// Calculate total price
 function selectedPrice() {
   return total.innerText = count.innerText * ticketPrice
 }
