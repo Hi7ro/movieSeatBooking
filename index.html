@@ -1,107 +1,22 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Movie Seat Booking</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="An interactive cinema seat-selection demo built with HTML, CSS and JavaScript. No real tickets are booked.">
+  <title>Movie Seat Booking · Interactive demo</title>
   <link rel="stylesheet" href="style.css">
+  <script src="booking.js" defer></script>
+  <script src="script.js" defer></script>
 </head>
-
 <body>
-  <div class="movie-container">
-    <label>Pick a movie:</label>
-    <select id="movie">
-      <option value="10">Avengers: Endgame (10€)</option>
-      <option value="12">Jocker (12€)</option>
-      <option value="8">Toy Story 4 (8€)</option>
-      <option value="9">The Lion King (9€)</option>
-    </select>
-  </div>
-
-  <ul class="showcase">
-    <li>
-      <div class="seat"></div>
-      <small>N/A</small>
-    </li>
-    <li>
-      <div class="seat selected"></div>
-      <small>Selected</small>
-    </li>
-    <li>
-      <div class="seat occupied"></div>
-      <small>Occupied</small>
-    </li>
-  </ul>
-
-  <div class="container">
-    <div class="screen"></div>
-    <div class="row">
-      <div class="seat"></div>
-      <div class="seat occupied"></div>
-      <div class="seat occupied"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-    </div>
-    <div class="row">
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat occupied"></div>
-      <div class="seat occupied"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-    </div>
-    <div class="row">
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-    </div>
-    <div class="row">
-      <div class="seat occupied"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat occupied"></div>
-      <div class="seat occupied"></div>
-    </div>
-    <div class="row">
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-    </div>
-    <div class="row">
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat occupied"></div>
-      <div class="seat occupied"></div>
-      <div class="seat occupied"></div>
-    </div>
-  </div>
-
-  <p class="text">You have selected <span id="count">0</span> seats for a price of <span id="total">0</span>€</p>
-
-  <script src="script.js"></script>
+  <main>
+    <header><p class="eyebrow">A little trip to the cinema</p><h1>Choose your seats.</h1><p class="intro">Pick a film, find your spot, and watch the total update.</p></header>
+    <div class="movie-container"><label for="movie">Tonight’s film</label><select id="movie"></select></div>
+    <ul class="showcase" aria-label="Seat legend"><li><span class="seat" aria-hidden="true"></span>Available</li><li><span class="seat selected" aria-hidden="true">✓</span>Selected</li><li><span class="seat occupied" aria-hidden="true">×</span>Occupied</li></ul>
+    <section class="auditorium" aria-label="Cinema seating"><div class="screen" aria-hidden="true"></div><p class="screen-label">SCREEN</p><div id="seats" class="seating" aria-label="Seat rows"></div></section>
+    <section class="summary" aria-labelledby="selection-heading"><h2 id="selection-heading">Your selection</h2><p id="selection" class="selection-text">No seats selected yet.</p><p class="text" aria-live="polite" aria-atomic="true"><strong id="count">0</strong> <span id="seat-word">seats</span> · <strong id="total">€0</strong></p><button id="reset" class="reset" type="button">Reset selection</button></section>
+    <footer><p>Local seat selection · no reservations or payments</p><p id="storage-status" role="status"></p></footer>
+  </main>
 </body>
-
 </html>
